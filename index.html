@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristanielle Jaranilla — Full-Cycle Recruiter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#EFEEE8;
+    --paper-raised:#F8F7F3;
+    --teal:#2F7A6D;
+    --teal-deep:#1F5850;
+    --amber:#C98A2C;
+    --muted:#5B6472;
+    --line:#D9D6CC;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{
+      opacity:0;
+      transform:translateY(14px);
+      animation:rise .7s ease forwards;
+    }
+  }
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    background:var(--ink);
+    color:var(--paper);
+    padding:72px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    right:-10%;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--teal) 0%, transparent 68%);
+    opacity:.55;
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(40px, 6vw, 64px);
+    line-height:1.02;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .role-line{
+    font-size:19px;
+    color:#C9D3D0;
+    font-weight:400;
+    margin:0 0 30px;
+    max-width:520px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:#AEB8C2;
+    position:relative;
+    z-index:1;
+  }
+  .contact-row a{color:inherit; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.25);}
+  .contact-row a:hover{border-color:var(--amber); color:#fff;}
+
+  /* ===== Thesis strip ===== */
+  .thesis{
+    background:var(--teal);
+    color:#EFF6F4;
+    padding:22px 0;
+  }
+  .thesis p{
+    margin:0;
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(17px,2.4vw,22px);
+    letter-spacing:-.005em;
+  }
+  .thesis strong{color:#FFE7BC; font-weight:600;}
+
+  main{padding:64px 0 40px;}
+
+  section{margin-bottom:64px;}
+  section:last-child{margin-bottom:0;}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:26px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--amber);
+    letter-spacing:.08em;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:26px;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+  .section-rule{
+    flex:1;
+    height:1px;
+    background:var(--line);
+    align-self:center;
+  }
+
+  /* ===== Skills ===== */
+  .skills-summary{
+    font-size:15.5px;
+    color:var(--ink);
+    max-width:720px;
+    margin:0 0 26px;
+  }
+  .pill-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:22px;
+  }
+  .pill{
+    font-size:13px;
+    padding:7px 13px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--teal-deep);
+    font-weight:500;
+  }
+  .toolbelt-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 10px;
+  }
+  .chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:6px 10px;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:2px;
+  }
+
+  /* ===== Education ===== */
+  .edu-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:20px 22px;
+    background:var(--paper-raised);
+    border-left:3px solid var(--amber);
+  }
+  .edu-card .school{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:18px;
+  }
+  .edu-card .program{color:var(--muted); font-size:14.5px; margin-top:3px;}
+  .edu-card .date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--teal-deep);
+    white-space:nowrap;
+  }
+
+  /* ===== Pipeline / experience ===== */
+  .pipeline{
+    position:relative;
+    padding-left:34px;
+  }
+  .pipeline::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:6px;
+    bottom:6px;
+    width:2px;
+    background:linear-gradient(var(--teal), var(--line) 90%);
+  }
+  .stage{
+    position:relative;
+    padding-bottom:40px;
+  }
+  .stage:last-child{padding-bottom:0;}
+  .stage::before{
+    content:"";
+    position:absolute;
+    left:-34px;
+    top:4px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2.5px solid var(--teal);
+  }
+  .stage.current::before{
+    background:var(--amber);
+    border-color:var(--amber);
+    box-shadow:0 0 0 4px rgba(201,138,44,.18);
+  }
+  .stage-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:4px;
+  }
+  .stage-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+  }
+  .stage-dates{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .stage-role{
+    font-size:14.5px;
+    color:var(--teal-deep);
+    font-weight:500;
+    margin:0 0 12px;
+    font-style:italic;
+  }
+  .stage ul{
+    margin:0;
+    padding-left:18px;
+  }
+  .stage li{
+    font-size:14.5px;
+    color:#333B46;
+    margin-bottom:7px;
+  }
+  .stage li:last-child{margin-bottom:0;}
+  .current-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    background:var(--amber);
+    color:#2A1C00;
+    padding:2px 8px;
+    border-radius:20px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* ===== Footer / signature ===== */
+  footer{
+    padding:36px 0 60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    border-top:1px solid var(--line);
+    margin-top:20px;
+  }
+  .wrap footer{max-width:880px;}
+  .signature{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .signature img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+  }
+  .signature-text{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.4;
+  }
+  .signature-text strong{color:var(--teal-deep);}
+  .back-top{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  .back-top:hover{color:var(--teal-deep); border-color:var(--teal-deep);}
+
+  a:focus-visible, .back-top:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    header{padding:52px 0 40px;}
+    main{padding:44px 0 20px;}
+    .pipeline{padding-left:26px;}
+    .stage::before{left:-26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow reveal">Full-Cycle Talent Acquisition</p>
+    <h1 class="reveal" style="animation-delay:.05s">Kristanielle<br>Jaranilla</h1>
+    <p class="role-line reveal" style="animation-delay:.12s">Senior recruiter turning cold sourcing into qualified, ready-to-hire pipelines — sales, technical, and non-technical searches alike.</p>
+    <div class="contact-row reveal" style="animation-delay:.18s">
+      <span>Mandaluyong City, PH</span>
+      <span>+63 905 443 9329</span>
+      <a href="mailto:jaranillataniel0@gmail.com">jaranillataniel0@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<div class="thesis">
+  <div class="wrap">
+    <p>5+ years building candidate pipelines end to end — <strong>sourced, screened, scheduled, closed.</strong></p>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Skills &amp; Qualifications</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="skills-summary">Strategic, analytical thinker with strong problem-solving skills and creative sourcing techniques for building strong pipelines across technical and non-technical searches. Goal-oriented, hardworking, and a natural motivator on cross-functional teams.</p>
+    <div class="pill-group">
+      <span class="pill">Full-Cycle Recruiting</span>
+      <span class="pill">Strategic Sourcing</span>
+      <span class="pill">Team Management</span>
+      <span class="pill">Client &amp; Candidate Relations</span>
+      <span class="pill">Time Management</span>
+      <span class="pill">Leadership</span>
+      <span class="pill">Verbal &amp; Written Communication</span>
+      <span class="pill">Office Administration</span>
+    </div>
+    <p class="toolbelt-label">Job Boards &amp; ATS</p>
+    <div class="chip-row">
+      <span class="chip">JobDiva</span>
+      <span class="chip">Monster</span>
+      <span class="chip">LinkedIn</span>
+      <span class="chip">Dice</span>
+      <span class="chip">Indeed</span>
+      <span class="chip">CareerBuilder</span>
+      <span class="chip">Eightfold</span>
+      <span class="chip">iCIMS</span>
+      <span class="chip">MS Office Suite</span>
+      <span class="chip">Google Suite</span>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Education</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="school">St. Paul University Quezon City</div>
+        <div class="program">Mass Communication</div>
+      </div>
+      <div class="date">May 2016</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Work Experience</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="pipeline">
+
+      <div class="stage current">
+        <div class="stage-head">
+          <span class="stage-title">Tata Consultancy Inc.<span class="current-tag">Present</span></span>
+          <span class="stage-dates">May 2025 — Present</span>
+        </div>
+        <p class="stage-role">Senior Process Associate</p>
+        <ul>
+          <li>Manage end-to-end full cycle recruiting in the sales industry, primarily Inbound Sales Representative and Licensed Insurance Agent roles.</li>
+          <li>Build rapport through paper screening and phone interviews to develop a qualified candidate pool across the United States.</li>
+          <li>Provide interview synopsis, assessment results, and candidate information to hiring managers.</li>
+          <li>Schedule formal interviews between candidates and hiring managers.</li>
+          <li>Manage candidate status in iCIMS and Eightfold, the team's core applicant tracking systems.</li>
+          <li>Send weekly touchpoints to hired candidates awaiting start dates and to candidates in background-check.</li>
+          <li>Screen for sales experience, strong communication, and coachability.</li>
+          <li>Support candidates through to their start date, relaying needs and concerns to hiring managers while tracking background checks.</li>
+          <li>Consistently hit monthly targets: 30 calls a week, 25% HMIV-to-offer conversion, and strong CSAT.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head">
+          <span class="stage-title">Jobility Talent Solutions</span>
+          <span class="stage-dates">Nov 2021 — Jan 2025</span>
+        </div>
+        <p class="stage-role">Jr. IT Recruiter</p>
+        <ul>
+          <li>Managed full cycle recruiting across IT and non-IT requisitions.</li>
+          <li>Developed sourcing strategies across social media, Boolean search, cold calling, referrals, job boards, and networking to build qualified pipelines across the United States.</li>
+          <li>Provided interview synopsis, assessment results, and candidate information to account managers and hiring managers.</li>
+          <li>Scheduled formal interviews between candidates and hiring managers.</li>
+          <li>Liaised with employers on visa status and C2C vs. W2 classification.</li>
+          <li>Posted and sourced roles across LinkedIn, Indeed, Dice, and Monster.</li>
+          <li>Maintained and organized the candidate database.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head">
+          <span class="stage-title">Mesomorph Fitness Gym</span>
+          <span class="stage-dates">Oct 2017 — Aug 2022</span>
+        </div>
+        <p class="stage-role">Operations Manager</p>
+        <ul>
+          <li>Ensured all operations were carried out appropriately, managing budgets and training staff.</li>
+          <li>Enhanced profitability by organizing and delivering a strong range of fitness activities.</li>
+          <li>Kept statistical and financial records.</li>
+          <li>Used social media to promote services and grow the customer base.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head">
+          <span class="stage-title">Zoo Fashion International Inc.</span>
+          <span class="stage-dates">Jul 2017 — Oct 2017</span>
+        </div>
+        <p class="stage-role">Marketing / Sales Assistant</p>
+        <ul>
+          <li>Built contacts and customer relationships, contributing ideas to marketing campaigns.</li>
+          <li>Compiled and distributed financial information.</li>
+          <li>Monitored social media accounts, created content, and responded to messages.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head">
+          <span class="stage-title">109 Café Restaurant</span>
+          <span class="stage-dates">Jan 2017 — Jul 2017</span>
+        </div>
+        <p class="stage-role">Operations Manager</p>
+        <ul>
+          <li>Ensured compliance with health, safety, food handling, and hygiene standards.</li>
+          <li>Handled customer complaints and resolved issues courteously.</li>
+          <li>Monitored social accounts and responded to online reviews while managing customer relationships.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-head">
+          <span class="stage-title">Rockwell Land Corporation</span>
+          <span class="stage-dates">Jul 2016 — Nov 2016</span>
+        </div>
+        <p class="stage-role">Front Desk Attendant</p>
+        <ul>
+          <li>Greeted and welcomed guests, answered emails and calls, and scheduled meetings and events.</li>
+          <li>Coordinated with office staff during events.</li>
+          <li>Worked confidently in Microsoft Office and Excel; multitasked and detail-oriented.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="signature">
+      <img src="coffee-sloth.png" alt="Illustration of a sloth hugging a mug of coffee" loading="lazy">
+      <div class="signature-text">Sourced, screened,<br>and <strong>caffeinated</strong> daily.</div>
+    </div>
+    <a href="#top" class="back-top">Back to top ↑</a>
+  </footer>
+
+</main>
+
+</body>
+</html>
